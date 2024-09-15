@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.shklog.api.controller.PostControllerTest" tests="1" skipped="1" failures="0" errors="0" timestamp="2024-09-14T09:36:06" hostname="DESKTOP-9P34E1L" time="0.001">
+  <properties/>
+  <testcase name="/posts 요청시 메시지 정상 출력한다." classname="com.shklog.api.controller.PostControllerTest" time="0.001">
+    <skipped/>
+  </testcase>
+  <system-out><![CDATA[2024-09-14T18:36:05.559+09:00  INFO 10976 --- [    Test worker] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.shklog.api.controller.PostControllerTest]: PostControllerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2024-09-14T18:36:05.612+09:00  INFO 10976 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.shklog.ShklogApplication for test class com.shklog.api.controller.PostControllerTest
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v3.0.5)
+
+2024-09-14T18:36:05.712+09:00  INFO 10976 --- [    Test worker] c.s.api.controller.PostControllerTest    : Starting PostControllerTest using Java 17.0.11 with PID 10976 (started by SHK in C:\Users\SHK\work\shklog)
+2024-09-14T18:36:05.713+09:00  INFO 10976 --- [    Test worker] c.s.api.controller.PostControllerTest    : No active profile set, falling back to 1 default profile: "default"
+2024-09-14T18:36:06.178+09:00  INFO 10976 --- [    Test worker] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2024-09-14T18:36:06.178+09:00  INFO 10976 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2024-09-14T18:36:06.181+09:00  INFO 10976 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 1 ms
+2024-09-14T18:36:06.220+09:00  INFO 10976 --- [    Test worker] c.s.api.controller.PostControllerTest    : Started PostControllerTest in 0.575 seconds (process running for 11.234)
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
