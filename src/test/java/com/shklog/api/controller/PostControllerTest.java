@@ -68,8 +68,8 @@ class PostControllerTest {
                 .build();
 
         String json = objectMapper.writeValueAsString(request);
+        //git
 
-        
         // when
         mockMvc.perform(post("/posts")
                         .header("authorization", "hodolman")
