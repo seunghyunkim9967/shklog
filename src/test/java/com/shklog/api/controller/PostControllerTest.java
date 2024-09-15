@@ -68,7 +68,7 @@ class PostControllerTest {
                 .build();
 
         String json = objectMapper.writeValueAsString(request);
-        //git ready
+        //git
 
         // when
         mockMvc.perform(post("/posts")
