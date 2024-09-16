@@ -7,5 +7,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class ShklogApplication {
     public static void main(String[] args) {
         SpringApplication.run(ShklogApplication.class, args);
+        //home git commit Test
     }
 }
