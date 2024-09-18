@@ -35,13 +35,13 @@
 </td>
 <td>
 <div class="infoBox" id="ignored">
-<div class="counter">1</div>
+<div class="counter">0</div>
 <p>ignored</p>
 </div>
 </td>
 <td>
 <div class="infoBox" id="duration">
-<div class="counter">0.001s</div>
+<div class="counter">0.785s</div>
 <p>duration</p>
 </div>
 </td>
@@ -50,8 +50,8 @@
 </div>
 </td>
 <td>
-<div class="infoBox skipped" id="successRate">
-<div class="percent">-</div>
+<div class="infoBox success" id="successRate">
+<div class="percent">100%</div>
 <p>successful</p>
 </div>
 </td>
@@ -79,18 +79,24 @@
 </tr>
 </thead>
 <tr>
-<td class="skipped">/posts 요청시 메시지 정상 출력한다.</td>
-<td class="skipped">test()</td>
-<td class="skipped">-</td>
-<td class="skipped">ignored</td>
+<td class="success">모든 게시글 조회</td>
+<td class="success">test3()</td>
+<td class="success">0.785s</td>
+<td class="success">passed</td>
 </tr>
 </table>
 </div>
 <div id="tab1" class="tab">
 <h2>Standard output</h2>
 <span class="code">
-<pre>2024-09-14T18:36:05.559+09:00  INFO 10976 --- [    Test worker] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.shklog.api.controller.PostControllerTest]: PostControllerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
-2024-09-14T18:36:05.612+09:00  INFO 10976 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.shklog.ShklogApplication for test class com.shklog.api.controller.PostControllerTest
+<pre>21:09:22.664 [Test worker] DEBUG org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Neither @ContextConfiguration nor @ContextHierarchy found for test class [PostControllerTest]: using SpringBootContextLoader
+21:09:22.671 [Test worker] DEBUG org.springframework.test.context.support.AbstractContextLoader -- Could not detect default resource locations for test class [com.shklog.api.controller.PostControllerTest]: no resource found for suffixes {-context.xml, Context.groovy}.
+21:09:22.672 [Test worker] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [com.shklog.api.controller.PostControllerTest]: PostControllerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+21:09:22.754 [Test worker] DEBUG org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Using ContextCustomizers for test class [PostControllerTest]: [DisableObservabilityContextCustomizer, PropertyMappingContextCustomizer, Customizer, ImportsContextCustomizer, ExcludeFilterContextCustomizer, DuplicateJsonObjectContextCustomizer, MockitoContextCustomizer, TestRestTemplateContextCustomizer]
+21:09:22.876 [Test worker] DEBUG org.springframework.context.annotation.ClassPathScanningCandidateComponentProvider -- Identified candidate component class: file [C:\Users\dnfhe\work\shklog\build\classes\java\main\com\shklog\ShklogApplication.class]
+21:09:22.878 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration com.shklog.ShklogApplication for test class com.shklog.api.controller.PostControllerTest
+21:09:23.076 [Test worker] DEBUG org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Using TestExecutionListeners for test class [PostControllerTest]: [ServletTestExecutionListener, DirtiesContextBeforeModesTestExecutionListener, ApplicationEventsTestExecutionListener, MockitoTestExecutionListener, DependencyInjectionTestExecutionListener, DirtiesContextTestExecutionListener, TransactionalTestExecutionListener, SqlScriptsTestExecutionListener, EventPublishingTestExecutionListener, RestDocsTestExecutionListener, MockRestServiceServerResetTestExecutionListener, MockMvcPrintOnlyOnFailureTestExecutionListener, WebDriverTestExecutionListener, MockWebServiceServerTestExecutionListener, ResetMocksTestExecutionListener]
+21:09:23.078 [Test worker] DEBUG org.springframework.test.context.support.AbstractDirtiesContextTestExecutionListener -- Before test class: class [PostControllerTest], class annotated with @DirtiesContext [false] with mode [null]
 
   .   ____          _            __ _ _
  /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
@@ -100,12 +106,63 @@
  =========|_|==============|___/=/_/_/_/
  :: Spring Boot ::                (v3.0.5)
 
-2024-09-14T18:36:05.712+09:00  INFO 10976 --- [    Test worker] c.s.api.controller.PostControllerTest    : Starting PostControllerTest using Java 17.0.11 with PID 10976 (started by SHK in C:\Users\SHK\work\shklog)
-2024-09-14T18:36:05.713+09:00  INFO 10976 --- [    Test worker] c.s.api.controller.PostControllerTest    : No active profile set, falling back to 1 default profile: &quot;default&quot;
-2024-09-14T18:36:06.178+09:00  INFO 10976 --- [    Test worker] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
-2024-09-14T18:36:06.178+09:00  INFO 10976 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
-2024-09-14T18:36:06.181+09:00  INFO 10976 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 1 ms
-2024-09-14T18:36:06.220+09:00  INFO 10976 --- [    Test worker] c.s.api.controller.PostControllerTest    : Started PostControllerTest in 0.575 seconds (process running for 11.234)
+2024-09-18T21:09:23.696+09:00  INFO 24676 --- [    Test worker] c.s.api.controller.PostControllerTest    : Starting PostControllerTest using Java 17.0.9 with PID 24676 (started by dnfhe in C:\Users\dnfhe\work\shklog)
+2024-09-18T21:09:23.698+09:00  INFO 24676 --- [    Test worker] c.s.api.controller.PostControllerTest    : No active profile set, falling back to 1 default profile: &quot;default&quot;
+2024-09-18T21:09:24.738+09:00  INFO 24676 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-09-18T21:09:24.834+09:00  INFO 24676 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 78 ms. Found 2 JPA repository interfaces.
+2024-09-18T21:09:25.541+09:00  INFO 24676 --- [    Test worker] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-09-18T21:09:25.665+09:00  INFO 24676 --- [    Test worker] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.1.7.Final
+2024-09-18T21:09:26.282+09:00  INFO 24676 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-09-18T21:09:26.629+09:00  INFO 24676 --- [    Test worker] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:shklog user=SA
+2024-09-18T21:09:26.633+09:00  INFO 24676 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-09-18T21:09:26.698+09:00  INFO 24676 --- [    Test worker] SQL dialect                              : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2024-09-18T21:09:28.163+09:00  INFO 24676 --- [    Test worker] org.hibernate.orm.connections.access     : HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@4abdd5e] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2024-09-18T21:09:28.174+09:00  INFO 24676 --- [    Test worker] org.hibernate.orm.connections.access     : HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@50930bff] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2024-09-18T21:09:28.209+09:00  INFO 24676 --- [    Test worker] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2024-09-18T21:09:28.227+09:00  INFO 24676 --- [    Test worker] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-09-18T21:09:28.884+09:00  WARN 24676 --- [    Test worker] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-09-18T21:09:29.518+09:00  INFO 24676 --- [    Test worker] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:shklog'
+2024-09-18T21:09:29.813+09:00  INFO 24676 --- [    Test worker] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2024-09-18T21:09:29.813+09:00  INFO 24676 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2024-09-18T21:09:29.816+09:00  INFO 24676 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 1 ms
+2024-09-18T21:09:29.845+09:00  INFO 24676 --- [    Test worker] c.s.api.controller.PostControllerTest    : Started PostControllerTest in 6.676 seconds (process running for 8.603)
+
+MockHttpServletRequest:
+      HTTP Method = GET
+      Request URI = /posts
+       Parameters = {}
+          Headers = [Content-Type:&quot;application/json;charset=UTF-8&quot;]
+             Body = null
+    Session Attrs = {}
+
+Handler:
+             Type = com.shklog.api.controller.PostController
+           Method = com.shklog.api.controller.PostController#getAllPosts()
+
+Async:
+    Async started = false
+     Async result = null
+
+Resolved Exception:
+             Type = null
+
+ModelAndView:
+        View name = null
+             View = null
+            Model = null
+
+FlashMap:
+       Attributes = null
+
+MockHttpServletResponse:
+           Status = 200
+    Error message = null
+          Headers = [Content-Type:&quot;application/json&quot;]
+     Content type = application/json
+             Body = [{&quot;id&quot;:1,&quot;title&quot;:&quot;테스트 제목입니다.&quot;,&quot;content&quot;:&quot;테스트 내용입니다.&quot;,&quot;users&quot;:null},{&quot;id&quot;:2,&quot;title&quot;:&quot;테스트 제목입니다2.&quot;,&quot;content&quot;:&quot;테스트 내용입니다2.&quot;,&quot;users&quot;:null}]
+    Forwarded URL = null
+   Redirected URL = null
+          Cookies = []
 </pre>
 </span>
 </div>
@@ -117,7 +174,7 @@
 <input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
 </label>
 </div>Generated by 
-<a href="http://www.gradle.org">Gradle 7.4</a> at 2024. 9. 14. 오후 6:36:06</p>
+<a href="http://www.gradle.org">Gradle 7.4</a> at 2024. 9. 18. 오후 9:09:30</p>
 </div>
 </div>
 </body>
