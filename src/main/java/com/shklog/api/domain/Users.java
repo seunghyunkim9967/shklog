@@ -36,4 +36,8 @@ public class Users { // User : 예약어로 인해 Users로 Entity변경.
         this.createdAt = LocalDateTime.now();
     }
 
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
 }

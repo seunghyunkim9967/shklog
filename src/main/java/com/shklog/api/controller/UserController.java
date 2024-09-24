@@ -1,9 +1,7 @@
 package com.shklog.api.controller;
 
-import com.shklog.api.domain.Post;
 import com.shklog.api.domain.Users;
-import com.shklog.api.service.PostService;
-import com.shklog.api.service.UserService;
+import com.shklog.api.service.AuthService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -18,10 +16,10 @@ import org.springframework.web.bind.annotation.RestController;
 public class UserController {
 
     @Autowired
-    private UserService userService;
+    private AuthService userService;
 
-    @PostMapping("/user")
-    public String user(@RequestBody @Valid Users request) {
+    @PostMapping("/join")
+    public String join(@RequestBody @Valid Users request) {
 
         return "user";
     }
