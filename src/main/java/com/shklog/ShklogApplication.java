@@ -33,6 +33,8 @@ public class ShklogApplication {
         * 5. 자주 사용하는 패턴과 원칙 이해
         * 6. 성능 고려
         * */
+        
+        //implementation 'org.springframework.boot:spring-boot-starter-security' security 의존성 추가 시 보안 설정으로 인해 로그인 페이지가 보여짐 
         SpringApplication.run(ShklogApplication.class, args);
     }
 }

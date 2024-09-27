@@ -16,11 +16,11 @@ import org.springframework.web.bind.annotation.RestController;
 public class UserController {
 
     @Autowired
-    private AuthService userService;
+    private AuthService authService;
 
-    @PostMapping("/join")
-    public String join(@RequestBody @Valid Users request) {
-
-        return "user";
+    @PostMapping("/signup")
+    public String signup(@RequestBody @Valid Users request) {
+        authService.signup(request);
+        return "회원가입 완료!";
     }
 }

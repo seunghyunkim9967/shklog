@@ -10,6 +10,8 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
+import java.util.Date;
 import java.util.List;
 
 @Slf4j
@@ -51,6 +53,24 @@ public class PostService {
         // findAll 메소드 기본 제공
         return postRepository.findAll();
     }
+
+    /*
+    * 게시글 수정
+    * postUpdate
+    * */
+    public Post postUpdate(Long postId, String title, String content) {
+        Post post = postRepository.findById(postId)
+                .orElseThrow(() -> new RuntimeException("Post not found"));
+
+        Post postUpdate = post.builder()
+                .title(title)
+                .content(content)
+                .modifiedDate(LocalDateTime.now()) // 수정 날짜 업데이트
+                .build();
+
+        return postRepository.save(postUpdate);
+    }
+
 
 
 }

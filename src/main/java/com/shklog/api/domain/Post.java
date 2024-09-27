@@ -3,6 +3,9 @@ package com.shklog.api.domain;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.time.LocalDateTime;
+import java.util.Date;
+
 @Entity
 @Getter
 @NoArgsConstructor(access = AccessLevel.PUBLIC)
@@ -28,16 +31,18 @@ public class Post {
 //
 //    private LocalDateTime createdDate = LocalDateTime.now();
 //
-//    private LocalDateTime modifiedDate;
+    @Column(columnDefinition = "TIMESTAMP")
+    private LocalDateTime modifiedDate;
 
     @ManyToOne
     @JoinColumn
     private Users users;
 
     @Builder
-    public Post(String title, String content, Users users) {
+    public Post(String title, String content, Users users, LocalDateTime modifiedDate) {
         this.title = title;
         this.content = content;
         this.users = users;
+        this.modifiedDate = modifiedDate;
     }
 }
