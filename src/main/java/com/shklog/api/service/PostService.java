@@ -63,6 +63,7 @@ public class PostService {
                 .orElseThrow(() -> new RuntimeException("Post not found"));
 
         Post postUpdate = post.builder()
+                .id(post.getId())
                 .title(title)
                 .content(content)
                 .modifiedDate(LocalDateTime.now()) // 수정 날짜 업데이트

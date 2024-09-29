@@ -7,10 +7,8 @@ import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -32,6 +30,12 @@ public class PostController {
     @GetMapping("/posts")
     public List<Post> getAllPosts() {
         return postService.findAll();
+    }
+
+    @PutMapping("/posts/{id}")
+    public ResponseEntity<Post> postUpdate(@PathVariable Long id, @RequestBody Post updatedPost) {
+        Post post = postService.postUpdate(id, updatedPost.getTitle(), updatedPost.getContent());
+        return ResponseEntity.ok(post);
     }
 
 }

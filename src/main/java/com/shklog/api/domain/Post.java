@@ -39,7 +39,9 @@ public class Post {
     private Users users;
 
     @Builder
-    public Post(String title, String content, Users users, LocalDateTime modifiedDate) {
+    public Post(Long id,String title, String content, Users users, LocalDateTime modifiedDate) {
+        //게시글 수정 시 ID를 명시적으로 포함 (테스트)
+        this.id = id;
         this.title = title;
         this.content = content;
         this.users = users;
