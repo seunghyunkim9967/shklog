@@ -1,6 +1,7 @@
 package com.shklog.api.service;
 
 import com.shklog.api.domain.Post;
+import com.shklog.api.exception.PostNotFound;
 import com.shklog.api.exception.UserNotFound;
 import com.shklog.api.repository.PostRepository;
 import com.shklog.api.repository.UserRepository;
@@ -70,6 +71,13 @@ public class PostService {
                 .build();
 
         return postRepository.save(postUpdate);
+    }
+
+    public void deletePost(Long id) {
+        Post post = postRepository.findById(id)
+                .orElseThrow(PostNotFound::new);
+
+        postRepository.delete(post);
     }
 
 
