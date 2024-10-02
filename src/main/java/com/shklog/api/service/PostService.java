@@ -32,17 +32,8 @@ public class PostService {
     * 게시글 등록 한다.
     * Postman, post.http, 화면(예정)
     * */
-    public void write(Post post) {
-//        var users = userRepository.findById(userId)
-//                .orElseThrow(UserNotFound::new);
-
-//        Post post = Post.builder()
-//                .users(users)
-//                .title(postCreate.getTitle())
-//                .content(postCreate.getContent())
-//                .build();
-
-        postRepository.save(post);
+    public Post write(Post post) {
+        return postRepository.save(post);
     }
 
     /*

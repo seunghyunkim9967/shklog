@@ -7,6 +7,7 @@ import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -21,10 +22,9 @@ public class PostController {
     private PostService postService;
 
     @PostMapping("/posts")
-    public void post(@RequestBody @Valid Post request) {
-
-//        return "";
-        postService.write(request);
+    public ResponseEntity<Post> post(@RequestBody @Valid Post request) {
+        Post savedPost = postService.write(request); // 저장된 게시글을 반환하도록 가정
+        return ResponseEntity.status(HttpStatus.CREATED).body(savedPost);
     }
 
     @GetMapping("/posts")
