@@ -6,6 +6,18 @@ import { Link } from 'react-router-dom'; // Link를 import 추가
 const PostList = () => {
     const [posts, setPosts] = useState([]); // 게시글 상태를 저장할 변수
 
+    // 게시글 삭제 함수
+      const deletePost = async (id) => {
+        try {
+          await axios.delete(`/api/posts/${id}`); // API로 게시글 삭제 요청
+          alert('게시글이 삭제되었습니다.');
+ //         fetchPosts(); // 삭제 후 게시글 목록을 다시 불러옴
+        } catch (error) {
+          console.error('게시글 삭제 중 오류가 발생했습니다.', error);
+          alert('게시글 삭제에 실패했습니다.');
+        }
+      };
+
     // 컴포넌트가 마운트될 때 API 호출
     useEffect(() => {
         const fetchPosts = async () => {
@@ -27,6 +39,7 @@ const PostList = () => {
                     <li key={post.id}>
                         <h2>{post.title}</h2>
                         <p>{post.content}</p>
+                        <button onClick={() => deletePost(post.id)}>삭제</button> {/* 삭제 버튼 */}
                     </li>
                 ))}
             </ul>
