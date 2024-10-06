@@ -9,7 +9,7 @@ const PostList = () => {
     // 게시글 삭제 함수
       const deletePost = async (id) => {
         try {
-          await axios.delete(`/api/posts/${id}`); // API로 게시글 삭제 요청
+          await axios.delete(`http://localhost:8080/posts/${id}`); // API로 게시글 삭제 요청
           alert('게시글이 삭제되었습니다.');
  //         fetchPosts(); // 삭제 후 게시글 목록을 다시 불러옴
         } catch (error) {
