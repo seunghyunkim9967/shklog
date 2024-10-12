@@ -19,8 +19,12 @@ public class UserController {
     private AuthService authService;
 
     @PostMapping("/signup")
-    public String signup(@RequestBody @Valid Users request) {
-        authService.signup(request);
-        return "회원가입 완료!";
+    public Users signup(@RequestBody @Valid Users request) {
+        try {
+            return authService.signup(request);
+        } catch (Exception e) {
+            // 에러 응답 처리 (단순 에러 메시지 전송)
+            throw new RuntimeException(e.getMessage());
+        }
     }
 }

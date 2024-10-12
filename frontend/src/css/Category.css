@@ -1,0 +1,16 @@
+.category {
+    text-align: center;
+    margin: 20px;
+}
+
+.category img {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+}
+
+.categories {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}

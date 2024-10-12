@@ -40,4 +40,7 @@ public class Users { // User : 예약어로 인해 Users로 Entity변경.
         this.password = password;
     }
 
+    public void setCreatedAt(LocalDateTime createdAt) {
+        this.createdAt = createdAt;
+    }
 }

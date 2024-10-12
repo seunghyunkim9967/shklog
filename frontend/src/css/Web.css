@@ -1,0 +1,18 @@
+@media (max-width: 768px) {
+    .header {
+        flex-direction: column;
+    }
+
+    .banner {
+        height: 250px;
+    }
+
+    .categories {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .category img {
+        max-width: 100%;
+    }
+}

@@ -1,52 +1,26 @@
 import React, { useState } from 'react';
 
-const SignupPage = () => {
-  // 상태 관리: 이름, 이메일, 비밀번호
-  const [name, setName] = useState('');
+const LoginPage = () => {
+  // 상태 관리: 이메일과 비밀번호
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  // 회원가입 버튼 클릭 시 처리할 함수
-  const handleSignup  = async (e) => {
+  // 로그인 버튼 클릭 시 처리할 함수
+  const handleLogin = (e) => {
     e.preventDefault();
+    // 로그인 처리 로직 추가 (API 요청 등)
+    console.log('로그인 시도:', { email, password });
+  };
 
-      try {
-        const response = await fetch('http://localhost:8080/signup', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({ name, email, password }),
-        });
-
-        if (response.ok) {
-          const data = await response.json();
-          console.log('회원가입 성공:', data);
-        } else {
-          const errorData = await response.json();
-          console.error('회원가입 실패:', errorData.message);
-        }
-      } catch (error) {
-        console.error('회원가입 중 오류 발생:', error);
-      }
-    console.log('회원가입 시도 결과 param:', { name, email, password });
+  // 회원가입 버튼 클릭 시 처리할 함수
+  const handleSignup = () => {
+    window.location.href = '/signup'; // 회원가입 페이지로 이동
   };
 
   return (
     <div style={styles.container}>
-      <h2>회원가입</h2>
-      <form onSubmit={handleSignup} style={styles.form}>
-        <div style={styles.inputGroup}>
-          <label htmlFor="name">이름</label>
-          <input
-            type="text"
-            id="name"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-            required
-            style={styles.input}
-          />
-        </div>
+      <h2>로그인</h2>
+      <form onSubmit={handleLogin} style={styles.form}>
         <div style={styles.inputGroup}>
           <label htmlFor="email">이메일</label>
           <input
@@ -70,9 +44,12 @@ const SignupPage = () => {
           />
         </div>
         <button type="submit" style={styles.button}>
-          회원가입
+          로그인
         </button>
       </form>
+      <button onClick={handleSignup} style={styles.signupButton}>
+        회원가입
+      </button>
     </div>
   );
 };
@@ -104,6 +81,16 @@ const styles = {
   button: {
     padding: '10px 20px',
     fontSize: '16px',
+    backgroundColor: '#28a745',
+    color: 'white',
+    border: 'none',
+    borderRadius: '5px',
+    cursor: 'pointer',
+  },
+  signupButton: {
+    marginTop: '10px',
+    padding: '10px 20px',
+    fontSize: '16px',
     backgroundColor: '#007bff',
     color: 'white',
     border: 'none',
@@ -112,4 +99,4 @@ const styles = {
   },
 };
 
-export default SignupPage;
+export default LoginPage;
