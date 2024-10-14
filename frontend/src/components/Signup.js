@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const SignupPage = () => {
+  const navigate = useNavigate(); // useNavigate 훅 사용
   // 상태 관리: 이름, 이메일, 비밀번호
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
@@ -20,8 +22,9 @@ const SignupPage = () => {
         });
 
         if (response.ok) {
-          const data = await response.json();
-          console.log('회원가입 성공:', data);
+          alert(name + '님 환영합니다!')
+          // 성공 시 로그인 페이지로
+          navigate('/'); // 로그인 페이지 경로로 이동
         } else {
           const errorData = await response.json();
           console.error('회원가입 실패:', errorData.message);

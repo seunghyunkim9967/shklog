@@ -4,6 +4,8 @@ import routes from './routes/routes'; // 기존 라우트 import
 import Header from './components/Header';
 import MainContent from './components/Main';
 import Footer from './components/Footer';
+import Signup from './components/Signup';
+import Login from './components/Login';
 
 function App() {
     return (

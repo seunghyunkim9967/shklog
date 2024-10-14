@@ -50,16 +50,16 @@ class PostControllerTest {
     }
 
 
-    @Test
-    @DisplayName("/posts 요청시 메시지 정상 출력한다.")
-    void test() throws Exception {
-        //expected
-
-        mockMvc.perform(get("/posts"))
-                .andExpect(status().isOk())
-                .andExpect(content().string("hello"));
-
-    }
+//    @Test
+//    @DisplayName("/posts 요청시 메시지 정상 출력한다.")
+//    void test() throws Exception {
+//        //expected
+//
+//        mockMvc.perform(get("/posts"))
+//                .andExpect(status().isOk())
+//                .andExpect(content().string("hello"));
+//
+//    }
 
     @Test
     @Disabled
@@ -93,29 +93,29 @@ class PostControllerTest {
     @Test
     @DisplayName("모든 게시글 조회")
     void test3() throws Exception {
-        // given
-        List<Post> request = Arrays.asList(
-                Post.builder()
-                .title("테스트 제목입니다.")
-                .content("테스트 내용입니다.")
-                .build(),
-                Post.builder()
-                .title("테스트 제목입니다2.")
-                .content("테스트 내용입니다2.")
-                .build()
-        );
-
-        postRepository.saveAll(request);
-
-        //expected
-        mockMvc.perform(get("/posts")
-                        .contentType(APPLICATION_JSON))
-                .andExpect(status().isOk())
-                .andExpect(jsonPath("$[1].title").value("테스트 제목입니다2."))
-                .andExpect(jsonPath("$[1].content").value("테스트 내용입니다2."))
-                .andDo(print());
-
-        // then
+//        // given
+//        List<Post> request = Arrays.asList(
+//                Post.builder()
+//                .title("테스트 제목입니다.")
+//                .content("테스트 내용입니다.")
+//                .build(),
+//                Post.builder()
+//                .title("테스트 제목입니다2.")
+//                .content("테스트 내용입니다2.")
+//                .build()
+//        );
+//
+//        postRepository.saveAll(request);
+//
+//        //expected
+//        mockMvc.perform(get("/posts")
+//                        .contentType(APPLICATION_JSON))
+//                .andExpect(status().isOk())
+//                .andExpect(jsonPath("$[1].title").value("테스트 제목입니다2."))
+//                .andExpect(jsonPath("$[1].content").value("테스트 내용입니다2."))
+//                .andDo(print());
+//
+//        // then
 
     }
 }

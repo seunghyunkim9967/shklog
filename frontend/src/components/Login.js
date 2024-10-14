@@ -1,15 +1,29 @@
 import React, { useState } from 'react';
+import axios from 'axios';
 
 const LoginPage = () => {
   // 상태 관리: 이메일과 비밀번호
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [error, setError] = useState('');
 
   // 로그인 버튼 클릭 시 처리할 함수
-  const handleLogin = (e) => {
-    e.preventDefault();
-    // 로그인 처리 로직 추가 (API 요청 등)
-    console.log('로그인 시도:', { email, password });
+  const handleLogin = async (e) => {
+      e.preventDefault();
+      setError('');
+      console.log('로그인 시도:', { email, password });
+
+      try {
+          const response = await axios.post('http://localhost:8080/signin', {
+              email,
+              password,
+          });
+          console.log('Login successful:', response.data);
+          // 로그인 성공 후 처리
+      } catch (err) {
+          setError('로그인 실패. 다시 시도하세요.');
+          console.error('Login error:', err.response ? err.response.data : err.message);
+      }
   };
 
   // 회원가입 버튼 클릭 시 처리할 함수
@@ -54,7 +68,7 @@ const LoginPage = () => {
   );
 };
 
-// 간단한 CSS 스타일
+// CSS 스타일
 const styles = {
   container: {
     maxWidth: '400px',
