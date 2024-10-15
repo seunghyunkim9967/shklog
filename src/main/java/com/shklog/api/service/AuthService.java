@@ -61,14 +61,24 @@ public class AuthService {
     /* 로그인 */
     public void login(UserSearch userSearch) {
         try {
-            Authentication authentication = authenticationManager.authenticate(
-                    new UsernamePasswordAuthenticationToken(
-                            userSearch.getEmail(),
-                            userSearch.getPassword()
-                    )
-            );
-            // 인증 성공, 필요한 추가 작업을 여기서 수행할 수 있습니다.
-            log.info("userSearch.getEmail()" + userSearch.getEmail());
+            log.info("authService 실행 : ");
+            // 사용자 정보를 데이터베이스에서 조회
+            Users user = userRepository.findByEmail(userSearch.getEmail())
+                    .orElseThrow(() -> new RuntimeException("사용자를 찾을 수 없습니다."));
+            log.info("email : " + userSearch.getEmail());
+            // 입력된 비밀번호와 저장된 인코딩된 비밀번호 비교
+            boolean isPasswordMatch = passwordEncoder.matches(userSearch.getPassword(), user.getPassword());
+            log.info("Match : " + isPasswordMatch);
+            if (!isPasswordMatch) {
+                throw new RuntimeException("비밀번호가 일치하지 않습니다.");
+            }
+//            Authentication authentication = authenticationManager.authenticate(
+//                    new UsernamePasswordAuthenticationToken(
+//                            userSearch.getEmail(),
+//                            userSearch.getPassword()
+//                    )
+//            );
+            log.info("authService 종료 : ");
         } catch (AuthenticationException e) {
             throw new RuntimeException("로그인 실패: " + e.getMessage());
         }

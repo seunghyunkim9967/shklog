@@ -2,8 +2,8 @@ import React from 'react';
 import logo from '../image/logo.jpg'; // 로고 이미지 경로
 
 const categories = [
-    { name: '홈', link: '#' },
-    { name: '전자제품', link: '#' },
+    { name: '홈', link: '/main' },
+    { name: '전자제품', link: '/main' },
     { name: '패션', link: '#' },
     { name: '생활용품', link: '#' },
     { name: '식료품', link: '#' },

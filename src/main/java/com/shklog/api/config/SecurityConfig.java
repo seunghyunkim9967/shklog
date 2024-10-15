@@ -27,7 +27,11 @@ public class SecurityConfig {
                                 .requestMatchers("/**").permitAll() // 인증 없이 접근 허용
                                 .anyRequest().authenticated() // 나머지 요청은 인증 필요
                 )
-                .headers().frameOptions().sameOrigin(); // H2 콘솔 사용을 위한 설정
+                .headers().frameOptions().sameOrigin();
+//                .and()
+//                .formLogin()
+//                .loginPage("/signin")
+//                .loginProcessingUrl("/signin");
         return http.build();
     }
 

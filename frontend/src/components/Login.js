@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 const LoginPage = () => {
   // 상태 관리: 이메일과 비밀번호
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
+  const navigate = useNavigate(); // useNavigate 훅 사용
 
   // 로그인 버튼 클릭 시 처리할 함수
   const handleLogin = async (e) => {
@@ -20,9 +22,11 @@ const LoginPage = () => {
           });
           console.log('Login successful:', response.data);
           // 로그인 성공 후 처리
+          alert('로그인 성공')
+          navigate('/main'); // '/main' 경로로 리다이렉션
       } catch (err) {
           setError('로그인 실패. 다시 시도하세요.');
-          console.error('Login error:', err.response ? err.response.data : err.message);
+          console.error('Login error:', err.message);
       }
   };
 
@@ -60,6 +64,7 @@ const LoginPage = () => {
         <button type="submit" style={styles.button}>
           로그인
         </button>
+        {error && <div style={{ color: 'red' }}>{error}</div>} {/* 에러 메시지 출력 */}
       </form>
       <button onClick={handleSignup} style={styles.signupButton}>
         회원가입

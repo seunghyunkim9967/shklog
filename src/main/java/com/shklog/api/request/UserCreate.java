@@ -9,10 +9,10 @@ import lombok.Data;
 @Builder
 public class UserCreate {
 
-    @Email(message = "유효한 이메일을 입력하세요.")
     @NotBlank(message = "이름을 입력해주십쇼...")
     private String name;
-    
+
+    @Email(message = "유효한 이메일을 입력하세요.")
     @NotBlank(message = "이메일을 입력해주십쇼...")
     private String email;
     

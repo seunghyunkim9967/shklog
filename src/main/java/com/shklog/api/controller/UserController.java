@@ -9,6 +9,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -25,7 +26,12 @@ public class UserController {
     private AuthService authService;
 
     @PostMapping("/signup")
-    public ResponseEntity<Void> signup(@RequestBody @Valid UserCreate userCreate) {
+    public ResponseEntity<?> signup(@RequestBody @Valid UserCreate userCreate, BindingResult result) {
+        if (result.hasErrors()) {
+            log.info(String.valueOf(ResponseEntity.badRequest().body(result.getAllErrors())));
+            return ResponseEntity.badRequest().body(result.getAllErrors());
+        }
+
         try {
             authService.signup(userCreate);
             return ResponseEntity.status(201).build();
@@ -36,9 +42,13 @@ public class UserController {
     }
 
     @PostMapping("/signin")
-    public ResponseEntity<Void> signin(@RequestBody @Valid UserSearch userSearch) {
-        try {
+    public ResponseEntity<?> signin(@RequestBody @Valid UserSearch userSearch, BindingResult result) {
+        if (result.hasErrors()) {
+            log.error("로그인 요청 오류: {}", result.getAllErrors());
+            return ResponseEntity.badRequest().body(result.getAllErrors());
+        }
 
+        try {
             // 로그 찍기
             log.info("Received signin request: email={}, password={}", userSearch.getEmail(), userSearch.getPassword());
             authService.login(userSearch);
