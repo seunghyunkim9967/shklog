@@ -16,9 +16,11 @@ function App() {
     return (
             <div>
                 {!isAuthPage && <Header />} {/* 인증 페이지가 아닐 때 Header 표시 */}
-                <Routes>
-                    {routes}
-                </Routes>
+                <div style={{ marginTop: '50px' }}> {/* 헤더 높이만큼 여백 추가 */}
+                    <Routes>
+                        {routes}
+                    </Routes>
+                </div>
                 <Footer />
             </div>
     );

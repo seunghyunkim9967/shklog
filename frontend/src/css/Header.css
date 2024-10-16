@@ -1,9 +1,28 @@
-.header {
+/*.header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 20px;
     background-color: #f8f9fa;
+}*/
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: white;
+    padding: 20px;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+}
+
+.progress-bar {
+    position: absolute;
+    height: 5px;
+    background: green;
+    top: 0;
+    left: 0;
 }
 
 .logo img {
